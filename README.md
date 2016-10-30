@@ -1,3 +1,5 @@
+# Cursory Setup Instructions w/ Bash History
+
 ## plain-text instructions
 
 ```
@@ -93,38 +95,36 @@
   end
 ```
 
-## git history
+## bash history
 
-NOT SHOWN: `rails routes` was run many times to 
+NOT SHOWN: `rails routes` was run many times between these
 
 ```
-  503  rails new parkr
-  505  cd parkr/
-  506  subl .
-  507  bundle install
-  508  rails g devise:install
-  509  rails g devise user username:string bio:text
-  510  rails routes
-  512  rails g model city name:string
-  513  rails g model parks name:string description:text creator:references city:references
-  514  rails g model review title:string body:text reviewer:references park:references
-  516  rails db:create
-  517  rails db:migrate
-  521  git add .
-  522  git init
-  523  git add .
-  524  git commit -m "Initial commit with models and migrations"
-  525  git remote add origin https://github.com/parkyngj/parkr.git
-  526  git push origin master
-  527  gcob controllers-views-init
-  537  rails g controller cities
-  538  rails g controller parks
-  539  rails g controller reviews
-  541  rails g controller users
-  542  git add .
-  543  git commit -m "Generate controllers for users, cities, parks, reviews"
-  506  rails g devise:views -h
-  507  rails g devise:views users
-  511  git commit -m "Implement username sanitization for user registration"
-  504  git commit -m "Make basic routes, actions, views for retrieving info from db"
+503  rails new parkr
+505  cd parkr/
+506  subl .
+507  bundle install
+508  rails g devise:install
+509  rails g devise user username:string bio:text
+512  rails g model city name:string
+513  rails g model parks name:string description:text creator:references city:references
+514  rails g model review title:string body:text reviewer:references park:references
+516  rails db:create
+517  rails db:migrate
+522  git init
+523  git add .
+524  git commit -m "Initial commit with models and migrations"
+525  git remote add origin https://github.com/parkyngj/parkr.git
+526  git push origin master
+527  gcob controllers-views-init
+537  rails g controller cities
+538  rails g controller parks
+539  rails g controller reviews
+541  rails g controller users
+542  git add .
+543  git commit -m "Generate controllers for users, cities, parks, reviews"
+544  gcob routes-actions-init
+507  rails g devise:views users
+511  git commit -m "Implement username sanitization for user registration"
+504  git commit -m "Make basic routes, actions, views for retrieving info from db"
 ```
