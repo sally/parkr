@@ -1,13 +1,11 @@
 class ReviewsController < ApplicationController
+  before_action :set_city_and_park, only: [:new, :create, :destroy]
+
   def new
-    @city = City.find(params[:city_id])
-    @park = Park.find(params[:park_id])
     @review = Review.new
   end
 
   def create
-    @city = City.find(params[:city_id])
-    @park = Park.find(params[:park_id])
     @review = Review.new(review_params)
     @review.park = @park
     @review.reviewer = current_user
@@ -21,8 +19,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @city = City.find(params[:city_id])
-    @park = Park.find(params[:park_id])
     @review = Review.find(params[:id])
     @review.destroy
 
@@ -33,5 +29,10 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:title, :body, :park, :reviewer)
+  end
+
+  def set_city_and_park
+    @city = City.find(params[:city_id])
+    @park = Park.find(params[:park_id])
   end
 end
