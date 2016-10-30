@@ -5,7 +5,7 @@ Create a New Park Listing
 </div>
 
 <div>
-  <%= form_for([@city, @city.parks.new]) do |f| %>
+  <%= form_for([@city, @city.parks.build]) do |f| %>
     <%= f.label :name %><br>
     <%= f.text_field :name, placeholder: "Enter park name" %><br>
 

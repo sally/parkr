@@ -5,6 +5,7 @@ class ParksController < ApplicationController
   end
 
   def show
+    @city = City.find(params[:city_id])
     @park = Park.find(params[:id])
   end
 
