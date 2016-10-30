@@ -20,6 +20,15 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @city = City.find(params[:city_id])
+    @park = Park.find(params[:park_id])
+    @review = Review.find(params[:id])
+    @review.destroy
+
+    redirect_to city_park_path(@city, @park)
+  end
+
   private
 
   def review_params

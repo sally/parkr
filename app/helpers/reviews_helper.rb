@@ -10,4 +10,12 @@ module ReviewsHelper
     end
   end 
 
+  def reviewer?(review)
+    if review.reviewer == current_user
+      true
+    else
+      false
+    end
+  end
+  
 end

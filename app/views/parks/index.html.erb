@@ -14,5 +14,10 @@ Find me at views/parks/index.html.erb
   <% @parks.each do |park| %>
     <!-- Also works: link_to park.name, city_park_path(@city, park) -->
     <%= link_to park.name, [@city, park] %><br>
+    <% if current_user %>
+      <% if creator?(park) %>
+        <%= link_to 'Edit', edit_city_park_path(@city, park) %>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
