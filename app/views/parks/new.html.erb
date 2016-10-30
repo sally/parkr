@@ -1,0 +1,17 @@
+Find me at views/parks/new.html.erb
+
+<div>
+Create a New Park Listing
+</div>
+
+<div>
+  <%= form_for([@city, @city.parks.new]) do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, placeholder: "Enter park name" %><br>
+
+    <%= f.label :description %><br>
+    <%= f.text_area :description, placeholder: "Describe the park" %><br>
+
+    <%= f.submit %>
+  <% end %>
+</div>
