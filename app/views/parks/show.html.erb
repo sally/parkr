@@ -16,7 +16,11 @@ Find me at views/parks/show.html.erb
   Reviews:
   <div>
     <% if current_user %>
-      <%= link_to 'Leave A Review', new_city_park_review_path(@city, @park) %>
+      <% if reviewed?(@park) %>
+        YOU ALREADY REVIEWED OMFG
+      <% else %>
+        <%= link_to 'Leave A Review', new_city_park_review_path(@city, @park) %>
+      <% end %>
     <% end %>
   </div>
   <div>
