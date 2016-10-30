@@ -65,8 +65,30 @@
   Go to config/initializers/devise.rb
   Change the 6 in config.password_length = 6..128
 
-* permit additional parameters
+* permit additional parameters upon registration
   See: https://github.com/plataformatec/devise#strong-parameters
+
+  Basically, in controllers/application_controller.rb, under protected, add:
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+  end
+
+  and above protected, add:
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+* permit additional parameters upon update
+
+  Basically, in controllers/application_controller.rb, under protected, add:
+
+  def upon_update_permitted_parameters
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :biography])
+  end
+
+  and above protected, add:
+
+  before_action :upon_update_permitted_parameters, if: :devise_controller?
 
 * edit the view so that the user can enter these parameters upon registrations
   See: https://github.com/plataformatec/devise#configuring-views
