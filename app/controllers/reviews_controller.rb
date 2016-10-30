@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   def new
     @city = City.find(params[:city_id])
     @park = Park.find(params[:park_id])
+    @review = Review.new
   end
 
   def create
@@ -14,6 +15,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to city_park_path(@city, @park)
     else
+      @errors = @review.errors.full_messages
       render 'new'
     end
   end

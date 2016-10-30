@@ -5,6 +5,5 @@ class Park < ApplicationRecord
   has_many :reviews
   has_many :reviewers, through: :reviews, source: :reviewer
 
-  validates :name, presence: true
-  validates :description, presence: true
+  validates :name, :description, presence: true
 end

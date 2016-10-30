@@ -4,6 +4,15 @@ Find me at new.html.erb
 Leave a review for <%= @park.name %>
 </div>
 
+<% if @errors %>
+  U FUCKED UP
+  <ul>
+  <% @errors.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+<% end %>
+
 <div>
   <%= form_for([@city, @park, @park.reviews.build]) do |f| %>
     <%= f.label :title %><br>
