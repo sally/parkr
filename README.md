@@ -11,8 +11,8 @@
 
 -d postgresql #Use postgres
 -T #Skip Test-Unit
--B #Skip Bundle to remove bullshit
---skip-turbolinks
+--skip-turbolinks #Skip turbolinks gem
+-B #Skip bundle install upon rails new
 
 2. rails new YOURPROJECTNAME
 
@@ -40,20 +40,39 @@
 
 5. bundle install
 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@  OPTIONAL BOOTSTRAP SETUP  @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+* go to assets/javascripts/application.js and make sure you require bootstrap-sprockets like so:
+
+  //= require jquery
+  //= require bootstrap-sprockets
+  //= require jquery_ujs
+
+  so that it appears in that order
+
+* go to assets/stylesheets
+
+  * add a file called main.scss, and put the following code inside:
+
+  @import "bootstrap-sprockets";
+  @import "bootstrap";
+
 @@@@@@@@@@@@@@@@@
 @  GENERATIONS  @
 @@@@@@@@@@@@@@@@@
 
-6. implement user registration and authentication
+1. implement user registration and authentication
   See: https://github.com/plataformatec/devise
   can specify attributes other than devise defaults by adding options to rails g devise model (see line 509)
 
-7. for each of your resources, type rails g model YOURRESOURCE
+2. for each of your resources, type rails g model YOURRESOURCE
   feel free to declare your resource's attributes in this step, e.g.
   rails g model park name:string description:text creator:references city:references
   HOWEVER when doing this, don't forget to take out the foreign_key options in the migration files for the references columns (see lines 513 and 514)
 
-8. for each of your resources that you require a controller for, type rails g controller YOURRESOURCE
+3. for each of your resources that you require a controller for, type rails g controller YOURRESOURCE
   this will create a view folder for each controller you make
   if you fuck up, you can destroy a controller and all associated files by doing rails destroy controller NAME
 
