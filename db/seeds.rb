@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-paula = User.create(email: 'p@p.p', password: 'pppppp', password_confirmation: 'pppppp', username: 'paula', biography: 'all i do is ball')
+paula = User.create(email: 'p@p.p', password: 'p', password_confirmation: 'p', username: 'paula', biography: 'all i do is ball')
 
 sf = City.create(name: 'San Fransokyo')
 
 lcp = Park.create(name: 'Lucky Cat Park', description: 'This park is real kuchi.', creator: User.first, city: City.last)
 
-User.create(email: 'j@j.j', password: 'jjjjjj', password_confirmation: 'jjjjjj', username: 'jeff', biography: 'all i do is eat')
+User.create(email: 'j@j.j', password: 'j', password_confirmation: 'j', username: 'jeff', biography: 'all i do is eat')
 
 Review.create(title: 'this park is LIT', body: 'as someone who loves to eat, i love to eat here. There are a lot of benches and tables to eat my food.', reviewer: User.last, park: Park.first)
