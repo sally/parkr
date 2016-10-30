@@ -1,7 +1,9 @@
 ## plain-text instructions
 
 ```
-**BASIC SETUP**
+@@@@@@@@@@@@@@@@@
+@  BASIC SETUP  @
+@@@@@@@@@@@@@@@@@
 
 1. put the following in .railsrc
 
@@ -17,7 +19,7 @@
 4. include the following gems 
 
   ######################
-  # NON RAILS-NEW GEMS #
+  # non-rails-new gems #
   ######################
 
   # Use devise for user auth
@@ -36,7 +38,9 @@
 
 5. bundle install
 
-**GENERATIONS**
+@@@@@@@@@@@@@@@@@
+@  GENERATIONS  @
+@@@@@@@@@@@@@@@@@
 
 6. implement user registration and authentication
   See: https://github.com/plataformatec/devise
@@ -51,7 +55,9 @@
   this will create a view folder for each controller you make
   if you fuck up, you can destroy a controller and all associated files by doing rails destroy controller NAME
 
-**OPTIONAL DEVISE CUSTOMIZATION**
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@ OPTIONAL DEVISE CUSTOMIZATION @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 * permit additional parameters
   See: https://github.com/plataformatec/devise#strong-parameters
@@ -59,7 +65,9 @@
 * edit the view so that the user can enter these parameters upon registrations
   See: https://github.com/plataformatec/devise#configuring-views
 
-**ROUTES AND ACTIONS**
+@@@@@@@@@@@@@@@@@@@@@@
+@ ROUTES AND ACTIONS @
+@@@@@@@@@@@@@@@@@@@@@@
 
 * for custom root, type root 'CONTROLLER#ACTION'
 
