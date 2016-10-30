@@ -1,0 +1,12 @@
+Find me at views/parks/index.html.erb
+
+<div>
+  All parks from <%= @city.name %>
+</div>
+
+<div>
+  <% @parks.each do |park| %>
+    <!-- Also works: link_to park.name, city_park_path(@city, park) -->
+    <%= link_to park.name, [@city, park] %>
+  <% end %>
+</div>

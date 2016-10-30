@@ -1,0 +1,24 @@
+Find me at views/parks/show.html.erb
+
+<div>
+  Park Name: <%= @park.name %>
+</div>
+
+<div>
+  listed by <%= @park.creator.username %>
+</div>
+
+<div>
+  Park Description: <%= @park.description %>
+</div>
+
+<div>
+  Reviews:
+  <div>
+    <% @park.reviews.each do |review| %>
+      Title: <%= review.title %><br>
+      by <%= review.reviewer.username %>: <br>
+      Body: <%= review.body %>
+    <% end %>
+  </div>
+</div>

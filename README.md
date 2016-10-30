@@ -51,16 +51,43 @@
   this will create a view folder for each controller you make
   if you fuck up, you can destroy a controller and all associated files by doing rails destroy controller NAME
 
+**OPTIONAL DEVISE CUSTOMIZATION**
+
+* permit additional parameters
+  See: https://github.com/plataformatec/devise#strong-parameters
+
+* edit the view so that the user can enter these parameters upon registrations
+  See: https://github.com/plataformatec/devise#configuring-views
+
 **ROUTES AND ACTIONS**
 
-9. 
+* for custom root, type root 'CONTROLLER#ACTION'
 
-10. 
+* to implement routes the rails way:
+  resources :RESOURCE
+  this will give you all seven routes
 
-11. 
+  if you want to implement only certain routes, do (e.g.):
+  resources :RESOURCE, only: [:index, :show]
+
+  if you want to implement all routes except some, do (e.g.):
+  resources :RESOURCE, except: [:index, :show]
+
+* to implement nested routes the rails way:
+  resources :RESOURCE do
+    resources :NESTEDROURCE
+  end
+
+  this will give you all seven routes for both RESOURCE and NESTEDRESOURCE. you can further restrict by doing (e.g.):
+
+  resources :cities, only: :index do 
+    resources :parks, except: [:index, :show]
+  end
 ```
 
 ## git history
+
+NOT SHOWN: `rails routes` was run many times to 
 
 ```
   503  rails new parkr
@@ -88,4 +115,8 @@
   541  rails g controller users
   542  git add .
   543  git commit -m "Generate controllers for users, cities, parks, reviews"
+  506  rails g devise:views -h
+  507  rails g devise:views users
+  511  git commit -m "Implement username sanitization for user registration"
+  504  git commit -m "Make basic routes, actions, views for retrieving info from db"
 ```
