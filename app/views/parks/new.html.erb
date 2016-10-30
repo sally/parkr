@@ -1,0 +1,26 @@
+Find me at views/parks/new.html.erb
+
+<div>
+Create a New Park Listing
+</div>
+
+<% if @errors %>
+  U FUCKED UP
+  <ul>
+  <% @errors.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<div>
+  <%= form_for([@city, @city.parks.build]) do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, placeholder: "Enter park name", value: @park.name %><br>
+
+    <%= f.label :description %><br>
+    <%= f.text_area :description, placeholder: "Describe the park", value: @park.description %><br>
+
+    <%= f.submit %>
+  <% end %>
+</div>

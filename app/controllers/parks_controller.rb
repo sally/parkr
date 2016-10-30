@@ -5,6 +5,30 @@ class ParksController < ApplicationController
   end
 
   def show
+    @city = City.find(params[:city_id])
     @park = Park.find(params[:id])
+  end
+
+  def new
+    @city = City.find(params[:city_id])
+    @park = Park.new
+  end
+
+  def create
+    @city = City.find(params[:city_id])
+    @park = @city.parks.new(park_params)
+    @park.creator = current_user
+    if @park.save
+      redirect_to city_park_path(@city, @park)
+    else
+      @errors = @park.errors.full_messages
+      render 'new'
+    end
+  end
+
+  private
+
+  def park_params
+    params.require(:park).permit(:name, :description, :city, :creator)
   end
 end

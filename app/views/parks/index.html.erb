@@ -5,8 +5,14 @@ Find me at views/parks/index.html.erb
 </div>
 
 <div>
+  <% if current_user %>
+    <%= link_to 'Create a Park Listing', new_city_park_path %>
+  <% end %>
+</div>
+
+<div>
   <% @parks.each do |park| %>
     <!-- Also works: link_to park.name, city_park_path(@city, park) -->
-    <%= link_to park.name, [@city, park] %>
+    <%= link_to park.name, [@city, park] %><br>
   <% end %>
 </div>

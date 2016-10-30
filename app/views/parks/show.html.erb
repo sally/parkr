@@ -15,10 +15,19 @@ Find me at views/parks/show.html.erb
 <div>
   Reviews:
   <div>
+    <% if current_user %>
+      <% if reviewed?(@park) %>
+        YOU ALREADY REVIEWED OMFG
+      <% else %>
+        <%= link_to 'Leave A Review', new_city_park_review_path(@city, @park) %>
+      <% end %>
+    <% end %>
+  </div>
+  <div>
     <% @park.reviews.each do |review| %>
       Title: <%= review.title %><br>
       by <%= review.reviewer.username %>: <br>
-      Body: <%= review.body %>
+      Body: <%= review.body %><br>
     <% end %>
   </div>
 </div>

@@ -1,0 +1,26 @@
+Find me at new.html.erb
+
+<div>
+Leave a review for <%= @park.name %>
+</div>
+
+<% if @errors %>
+  U FUCKED UP
+  <ul>
+  <% @errors.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<div>
+  <%= form_for([@city, @park, @park.reviews.build]) do |f| %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title, placeholder: "Title of your Review" %><br>
+
+    <%= f.label :body %><br>
+    <%= f.text_area :body, placeholder: "Describe your experience at the park" %><br>
+
+    <%= f.submit %>
+  <% end %>
+</div>

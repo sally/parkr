@@ -61,11 +61,20 @@
 @ OPTIONAL DEVISE CUSTOMIZATION @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+* change minimum password length
+  Go to config/initializers/devise.rb
+  Change the 6 in config.password_length = 6..128
+
 * permit additional parameters
   See: https://github.com/plataformatec/devise#strong-parameters
 
 * edit the view so that the user can enter these parameters upon registrations
   See: https://github.com/plataformatec/devise#configuring-views
+  Go to views/users/registrations/new.html.erb
+
+* add errors upon login failure (after configuring views)
+  See: http://stackoverflow.com/a/35376583/7015790
+  Go to views/users/registrations/sessions/new.html.erb
 
 @@@@@@@@@@@@@@@@@@@@@@
 @ ROUTES AND ACTIONS @
