@@ -132,6 +132,10 @@
 
   if you want to implement all routes except some, do (e.g.):
   resources :RESOURCE, except: [:index, :show]
+ 
+  NOTE: the restriction name must match the controller action name, not the verb name from rails routes.
+  e.g. except: :delete IS WRONG! you do except: :destroy, since the action in the controller is called destroy
+  Thanks Ilaria :D
 
 * to implement nested routes the rails way:
   resources :RESOURCE do
