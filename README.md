@@ -139,7 +139,7 @@
 
 * to implement nested routes the rails way:
   resources :RESOURCE do
-    resources :NESTEDROURCE
+    resources :NESTEDRESOURCE
   end
 
   this will give you all seven routes for both RESOURCE and NESTEDRESOURCE. you can further restrict by doing (e.g.):
