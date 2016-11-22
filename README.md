@@ -147,6 +147,26 @@
   resources :cities, only: :index do 
     resources :parks, except: [:index, :show]
   end
+
+@@@@@@@@@@@@@@@@@@@@@@
+@ CURSORY AJAX NOTES @
+@@@@@@@@@@@@@@@@@@@@@@
+
+1. Put the remote:true attribute on the HTML element you wish to AJAX
+
+2. In the controller, put if request.xhr? clause to treat AJAX request
+   -> for returning a JSON object (ex): render json: @review
+   -> for returning partial (ex): render partial: 'form', locals: {city: @city, park: @park, review: @review}
+   -> for returning text, or just HTML (ex): render html: "blah"
+   
+3. in .js file,
+   $(document).ready(function(){
+     $(HTML object that you put remote:true on).on('ajax:success', function(event, response){
+       console.log(event);
+       console.log(response);
+       // whatever you want to do with the response goes here
+    });
+  });
 ```
 
 ## bash history
